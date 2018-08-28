@@ -51,6 +51,9 @@ createapp() {
 
 lazy='\'
 
+if [[ ! -d app/app/src/main/java/com/whatshack/ ]]; then
+mkdir -p app/app/src/main/java/com/whatshack/
+fi
 
 printf "package com.whatshack;\n" > app/app/src/main/java/com/whatshack/MainActivity.java
 
