@@ -37,7 +37,7 @@ Download Android Studio:
 https://developer.android.com/studio
 
 Installing Android Studio:
-# unzip ~/Download/android*.zip -d /opt
+# unzip ~/Downloads/android*.zip -d /opt
 
 For AMD64 Arch, Install Android Studio dependencies:
 # apt-get install lib32z1 lib32ncurses6 lib32stdc++6
@@ -55,8 +55,28 @@ Run script:
 # cd whatshack/
 # bash whatshack.sh
 
-```
 
+On First Time, Choose "n" when asks to build, then open the project on Android Studio:
+cd /opt/android-studio/bin
+./studio.sh
+
+Import Gradle Project:
+Choose whatshack app folder: whatshack/app/
+
+Wait all dependencies downloading, if you got errors, click on showed links to solve.
+Try build from Android Studio: Build > build APK's
+Click on showed links if you got errors.
+Close Android after building successfully.
+
+open with any Text Editor the file app/build.gradle
+
+remove "google()"
+change gradle version from: 3.4.1 to: 2.2.0
+save and exit.
+
+Run script (as root):
+# bash whatshack.sh
+```
 ### Donate!
 Support the authors:
 
