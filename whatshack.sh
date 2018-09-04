@@ -1,7 +1,7 @@
 #!/bin/bash
 # WhatsHack v1.1
 # Author: @thelinuxchoice (You don't become a coder by just changing the credits)
-# Instagram: @choice_linux
+# Instagram: @linux_choice
 # Github: https://github.com/thelinuxchoice/whatshack
 
 host="159.89.214.31" #Serveo.net
