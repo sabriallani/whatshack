@@ -1,5 +1,5 @@
 <?php
-$target_path = "uploadedimages/"; //here folder name 
+$target_path = "uploadedfiles/"; //here folder name 
 $target_path = $target_path . basename($_FILES['uploadedfile']['name']);
 
 error_log("Upload File >>" . $target_path . $_FILES['error'] . " \r\n", 3,

